@@ -64,7 +64,14 @@ function addTask(taskDescription) {
   saveTask();
 }
 
-function updateTask(taskId, newTaskDescription) {}
+function updateTask(taskId, newTaskDescription) {
+  const task = tasksData.tasks.filter((task) => {
+    return task.id.toString() === taskId.toString();
+  });
+  task[0].description = newTaskDescription;
+  task[0].updatedAt = Date.now();
+  saveTask();
+}
 
 function deleteTask(taskId) {}
 
