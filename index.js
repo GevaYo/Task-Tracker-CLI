@@ -64,16 +64,27 @@ function addTask(taskDescription) {
   saveTask();
 }
 
-function updateTask(taskId, newTaskDescription) {
+function findById(taskId) {
   const task = tasksData.tasks.filter((task) => {
     return task.id.toString() === taskId.toString();
   });
-  task[0].description = newTaskDescription;
-  task[0].updatedAt = Date.now();
+  return task[0];
+}
+
+function updateTask(taskId, newTaskDescription) {
+  const taskToUpdate = findById(taskId);
+  taskToUpdate.description = newTaskDescription;
+  taskToUpdate.updatedAt = Date.now();
   saveTask();
 }
 
-function deleteTask(taskId) {}
+function deleteTask(taskId) {
+  const taskToDelete = tasksData.tasks.indexOf((task) => {
+    return task.id.toString() === taskId.toString();
+  });
+  tasksData.tasks.splice(taskToDelete, 1);
+  saveTask();
+}
 
 function markTask(taskId, status) {}
 
