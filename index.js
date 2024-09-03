@@ -1,3 +1,4 @@
+const { create } = require("domain");
 const fs = require("fs");
 const path = require("path");
 
@@ -38,10 +39,10 @@ switch (action) {
     markTask(inputs[0], "done");
     break;
   case "list":
-    if (!inputs) {
-      listTasks();
+    if (inputs.length > 0) {
+      listTasks(inputs[0]);
     }
-    listTasks(inputs[0]);
+    listTasks();
     break;
   default:
     console.log(
@@ -49,7 +50,19 @@ switch (action) {
     );
 }
 
-function addTask(taskDescription) {}
+function addTask(taskDescription) {
+  let counter = tasksData.counter;
+  const newTask = {
+    id: counter,
+    description: taskDescription,
+    status: "todo",
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
+  };
+  tasksData.tasks.push(newTask);
+  tasksData.counter++;
+  saveTask();
+}
 
 function updateTask(taskId, newTaskDescription) {}
 
@@ -63,4 +76,7 @@ function loadData() {
   return JSON.parse(fs.readFileSync(taskFilePath, "utf8").toString());
 }
 
-function saveTasks() {}
+function saveTask() {
+  const dataJSON = JSON.stringify(tasksData, null, 2);
+  fs.writeFileSync(taskFilePath, dataJSON);
+}
