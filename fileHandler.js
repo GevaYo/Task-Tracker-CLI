@@ -5,6 +5,10 @@ const taskFilePath = path.join(__dirname, "tasks.json");
 
 function loadData() {
   try {
+    if (!fs.existsSync(taskFilePath)) {
+      console.warn(`File ${taskFilePath} does not exist. Creating a new one.`);
+      saveData({ counter: 0, tasks: [] });
+    }
     return JSON.parse(fs.readFileSync(taskFilePath, "utf8").toString());
   } catch (error) {
     console.error(`Error loading data:`, error.message);
