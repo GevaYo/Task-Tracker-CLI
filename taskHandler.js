@@ -8,8 +8,8 @@ function addTask(taskDescription) {
     id: tasksData.counter,
     description: taskDescription,
     status: "todo",
-    createdAt: Date.now().toISOString(),
-    updatedAt: Date.now().toISOString(),
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   };
   tasksData.tasks.push(newTask);
   tasksData.counter++;
