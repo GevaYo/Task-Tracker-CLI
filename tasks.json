@@ -1,12 +1,19 @@
 {
-  "counter": 2,
+  "counter": 4,
   "tasks": [
     {
       "id": 1,
-      "description": "Test was updated",
-      "status": "todo",
+      "description": "Test was updated once again",
+      "status": "done",
       "createdAt": 1725389172640,
-      "updatedAt": 1725389890947
+      "updatedAt": 1725390244254
+    },
+    {
+      "id": 3,
+      "description": "Do the laundry",
+      "status": "todo",
+      "createdAt": 1725442741990,
+      "updatedAt": 1725442741990
     }
   ]
 }

@@ -2,8 +2,9 @@
   "name": "task-tracker-cli",
   "version": "1.0.0",
   "description": "CLI tool to track your tasks",
-  "main": "index.js",
+  "main": "cli.js",
   "scripts": {
+    "start": "node cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yoav Geva",
