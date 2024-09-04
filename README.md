@@ -1,6 +1,8 @@
 # Task-Tracker-CLI
 
-A simple command-line tool for tracking tasks.
+A simple command-line tool for [tracking tasks](https://roadmap.sh/projects/task-tracker).
+
+# Running the project
 
 1. Clone using this URL: https://github.com/GevaYo/Task-Tracker-CLI.git
 2. Navigate to Task-Tracker-CLI directory: `cd Task-Tracker-CLI`
