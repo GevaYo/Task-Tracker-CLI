@@ -41,8 +41,9 @@ switch (action) {
   case "list":
     if (inputs.length > 0) {
       listTasks(inputs[0]);
+    } else {
+      listTasks();
     }
-    listTasks();
     break;
   default:
     console.log(
@@ -86,9 +87,26 @@ function deleteTask(taskId) {
   saveTask();
 }
 
-function markTask(taskId, status) {}
+function markTask(taskId, status) {
+  const taskToModify = findById(taskId);
+  taskToModify.status = status;
+  saveTask();
+}
 
-function listTasks(status = null) {}
+function listTasks(status = null) {
+  if (!status) {
+    tasksData.tasks.forEach((task) => {
+      console.log(`- ${task.description} (Status: ${task.status})`);
+    });
+  } else {
+    const tasksByStatus = tasksData.tasks.filter((task) => {
+      return task.status.toString() === status.toString();
+    });
+    tasksByStatus.forEach((task) => {
+      console.log(`- ${task.description}`);
+    });
+  }
+}
 
 function loadData() {
   return JSON.parse(fs.readFileSync(taskFilePath, "utf8").toString());
