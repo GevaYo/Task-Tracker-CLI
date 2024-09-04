@@ -2,7 +2,7 @@
 
 A simple command-line tool for tracking tasks.
 
-1. Clone using this URL: [text](https://github.com/GevaYo/Task-Tracker-CLI.git)
+1. Clone using this URL: https://github.com/GevaYo/Task-Tracker-CLI.git
 2. Navigate to Task-Tracker-CLI directory
 3. In order to use the tracker with this command 'task-cli' run the following: `npm install -g .`
 
